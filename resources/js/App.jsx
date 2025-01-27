@@ -1,9 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div>MP - EMPRESAS</div>
+    <>
+        MP - EMPRESAS
+        <button className='btn btn-primary'>Boton</button>
+    </>
   )
 }
 
