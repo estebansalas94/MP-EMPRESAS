@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
+
 class AuthController extends Controller
 {
     public function register(Request $request)
@@ -37,7 +38,29 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        
+        $response = ['success' => false];
+
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if($validator->fails()){
+            $response['error'] = $validator->errors();
+            return response()->json($response,401);
+        }
+
+        if(auth()->attempt((['email' => $request->email, 'password' => $request->password]))){
+            $user = auth()->user();
+            $user->hasRole('client');
+            $response['token'] = $user->createToken('authToken')->plainTextToken;
+            $response['user'] = $user;
+            $response['success'] = true;
+
+        }
+
+        return response()->json($response,200);
+
     }
 
     public function logout(Request $request)
