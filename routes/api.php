@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('v1')->group(function(){
-   Route::get('/public/{slug}',[FrontController::class,'categoria']);
-   Route::get('/auth/register',[AuthController::class,'register']);
-   Route::get('/auth/login',[AuthController::class,'login']);
+    Route::post('/auth/register',[AuthController::class,'register']);
+
+    Route::get('/public/{slug}',[FrontController::class,'categoria']);
+    Route::post('/auth/login',[AuthController::class,'login']);
 
 
-   Route::group(['middleware'=>'auth:sanctum'],function(){
+    Route::group(['middleware'=>'auth:sanctum'],function(){
        Route::post('/auth/logout',[AuthController::class,'logout']);
 
        //rol cliente
@@ -31,6 +32,6 @@ Route::prefix('v1')->group(function(){
    });
 });
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
