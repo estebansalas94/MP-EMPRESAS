@@ -14,6 +14,7 @@ import ProtectedRoutes from './pageauth/ProtectedRoutes';
 
 //AUTH
 import Login from './pageauth/Login';
+import Register from './pageauth/Register';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<LayoutPublic/>}>
           <Route index element={<Pagehome/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>}/>
         </Route>
 
         <Route element={<ProtectedRoutes/>}>
