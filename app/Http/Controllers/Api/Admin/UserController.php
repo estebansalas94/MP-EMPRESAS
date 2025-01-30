@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $data = User::get(['id','name','email']);
+        $data = User::get(['id','name','email','password']);
         return response()->json($data,200);
     }
 

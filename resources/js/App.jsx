@@ -15,6 +15,8 @@ import ProtectedRoutes from './pageauth/ProtectedRoutes';
 //AUTH
 import Login from './pageauth/Login';
 import Register from './pageauth/Register';
+import PanelAdmin from './pageadmin/PanelAdmin';
+import PanelClient from './pageclient/PanelClient';
 
 function App() {
   return (
@@ -29,10 +31,11 @@ function App() {
 
         <Route element={<ProtectedRoutes/>}>
           <Route  path="/admin" element={<LayoutAdmin/>}>
-            <Route  index element={<Pagehome/>}/>
+            <Route  index element={<PanelAdmin/>}/>
           </Route>
           <Route  path="/client" element={<LayoutClient/>}>
             <Route  index element={<Pagehome/>}/>
+            <Route index element={<PanelClient/>}/>
           </Route>
         </Route>
         
