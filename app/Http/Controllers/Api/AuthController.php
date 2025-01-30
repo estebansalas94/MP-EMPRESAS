@@ -55,6 +55,7 @@ class AuthController extends Controller
             $user->hasRole('client');
             $response['token'] = $user->createToken('authToken')->plainTextToken;
             $response['user'] = $user;
+            $response['message'] = 'Inicio de sesión correcto';
             $response['success'] = true;
 
         }
