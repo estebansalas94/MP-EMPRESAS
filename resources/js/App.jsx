@@ -15,8 +15,12 @@ import ProtectedRoutes from './pageauth/ProtectedRoutes';
 //AUTH
 import Login from './pageauth/Login';
 import Register from './pageauth/Register';
-import PanelAdmin from './pageadmin/PanelAdmin';
 import PanelClient from './pageclient/PanelClient';
+
+//ADMIN
+import PanelAdmin from './pageadmin/PanelAdmin';
+import UserAll from './pageadmin/UserAll';
+
 
 function App() {
   return (
@@ -32,6 +36,7 @@ function App() {
         <Route element={<ProtectedRoutes/>}>
           <Route  path="/admin" element={<LayoutAdmin/>}>
             <Route  index element={<PanelAdmin/>}/>
+            <Route path="user" element={<UserAll/>} />
           </Route>
           <Route  path="/client" element={<LayoutClient/>}>
             <Route  index element={<Pagehome/>}/>
@@ -50,8 +55,6 @@ if (document.getElementById('root')) {
     const Index = ReactDOM.createRoot(document.getElementById("root"));
 
     Index.render(
-        <React.StrictMode>
             <App/>
-        </React.StrictMode>
     )
 }

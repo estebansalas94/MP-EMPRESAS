@@ -8,4 +8,11 @@ export default {
     getRegister:(data)=>axios.post(`${base_api_url}auth/register`,data),
     getLogin:(data)=>axios.post(`${base_api_url}auth/login`,data),
     getLogout: (config = {}) => axios.post(`${base_api_url}auth/logout`, {}, config),
+
+
+    //ROL ADMIN
+    getUserAll: () => axios.get(`${base_api_url}admin/user`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    }),
+   
 }

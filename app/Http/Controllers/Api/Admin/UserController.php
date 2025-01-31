@@ -10,10 +10,20 @@ class UserController extends Controller
 {
     public function index()
     {
-        $data = User::get(['id','name','email']);
+        $data = User::whereHas('roles',function($q){
+            $q->where('name','client');
+        })->get(['id','name','email']);
         return response()->json($data,200);
     }
 
+    public function store(Request $request)
+    {
+        // $data = new User();
+        // $data->fill($request->all());
+        // $data->password = bcrypt($request->password);
+        // $data->save();
+        // return response()->json($data,200);
+    }
     public function show($id)
     {
         $data = User::find($id);
@@ -26,5 +36,12 @@ class UserController extends Controller
         $data->fill($request->all());
         $data->save();
         return response()->json($data,200);
+    }
+
+    public function destroy($id)
+    {
+        // $data = User::find($id);
+        // $data->delete();
+        // return response()->json($data,200);
     }
 }
