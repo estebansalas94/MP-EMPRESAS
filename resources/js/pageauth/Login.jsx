@@ -21,20 +21,25 @@ const Login = () => {
     },[]);
 
     const submitLogin = async (e) => {
-            e.preventDefault();
-            Config.getLogin({email, password}).then(({data})=>{
-                if(data.success){
+        e.preventDefault();
+        await axios.get('/sanctum/csrf-cookie').then(() => {
+            Config.getLogin({ email, password }).then((data) => {
+                if (data.data.success) {
+                    console.log("Usuario autenticado:", data);
+                    localStorage.setItem('token', data.data.token);
+    
                     setToken(
-                        data.user,
-                        data.token, 
-                        data.user.roles[0].name
+                        data.data.user,
+                        data.data.token,
+                        data.data.user.roles[0].name
                     );
-                   // console.log(data);
-                }else{
-                    setMessage(data.message);
+                } else {
+                    setMessage(data.data.message);
                 }
-            });
-        }
+            }).catch(error => console.error("Error en login:", error));
+        });
+    };
+    
 
   return (
     <div className='container'>
