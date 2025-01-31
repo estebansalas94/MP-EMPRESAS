@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import Config from '../Config';
+import { Link } from 'react-router-dom';
 
 const UserAll = () => {
     const [users, setUsers] = useState();
@@ -38,7 +39,9 @@ const UserAll = () => {
                                                 <tr key={user.id}>
                                                     <td>{user.id}</td>
                                                     <td>{user.name}</td>
-                                                    <td></td>
+                                                    <td>
+                                                        <Link to={`/admin/user/edit/${user.id}`} className='btn btn-primary'>Editar</Link>
+                                                    </td>
                                                 </tr>
                                             )
                                         }

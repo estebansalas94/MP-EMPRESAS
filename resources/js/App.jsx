@@ -20,6 +20,7 @@ import PanelClient from './pageclient/PanelClient';
 //ADMIN
 import PanelAdmin from './pageadmin/PanelAdmin';
 import UserAll from './pageadmin/UserAll';
+import UserUpdate from './pageadmin/UserUpdate';
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route  path="/admin" element={<LayoutAdmin/>}>
             <Route  index element={<PanelAdmin/>}/>
             <Route path="user" element={<UserAll/>} />
+            <Route path="user/edit/:id" element={<UserUpdate/>} />
+
           </Route>
           <Route  path="/client" element={<LayoutClient/>}>
             <Route  index element={<Pagehome/>}/>
