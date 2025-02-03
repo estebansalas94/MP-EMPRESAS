@@ -21,6 +21,7 @@ import PanelClient from './pageclient/PanelClient';
 import PanelAdmin from './pageadmin/PanelAdmin';
 import UserAll from './pageadmin/UserAll';
 import UserUpdate from './pageadmin/UserUpdate';
+import CategoriaAll from './pageadmin/CategoriaAll';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route  index element={<PanelAdmin/>}/>
             <Route path="user" element={<UserAll/>} />
             <Route path="user/edit/:id" element={<UserUpdate/>} />
+            <Route path='categoria' element={<CategoriaAll/>}/>
 
           </Route>
           <Route  path="/client" element={<LayoutClient/>}>

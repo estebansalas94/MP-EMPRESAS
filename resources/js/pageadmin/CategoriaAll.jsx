@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import Sidebar from './Sidebar';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import Config from '../Config';
+import Sidebar from './Sidebar';
 import { Link } from 'react-router-dom';
 
-const UserAll = () => {
-    const [users, setUsers] = useState();
+
+
+const CategoriaAll = () => {
+    const [categorias, setCategorias] = useState();
 
     useEffect(() => {
-        getUserAll();
+        getCategoriaAll();
     },[]);
 
-    const getUserAll = async () => {
+    const getCategoriaAll = async () => {
         try {
-            const response = await Config.getUserAll();
-            setUsers(response.data);
+            const response = await Config.getCategoriaAll();
+            setCategorias(response.data);
         } catch (error) {
             console.error("Error al obtener usuarios:", error.response?.data || error.message);
         }
@@ -28,19 +31,19 @@ const UserAll = () => {
                         <table className='table'>
                             <thead>
                                 <tr>
-                                    <th>ID</th><th>NOMBRE</th><th>ACCIÓN</th>
+                                    <th>ORDEN</th><th>NOMBRE</th><th>ACCIÓN</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
-                                    !users ? "...Loading" : users.map(
-                                        (user) => {
+                                    !categorias ? "...Loading" : categorias.map(
+                                        (categoria) => {
                                             return(
-                                                <tr key={user.id}>
-                                                    <td>{user.id}</td>
-                                                    <td>{user.name}</td>
+                                                <tr key={categoria.id}>
+                                                    <td>{categoria.orden}</td>
+                                                    <td>{categoria.nombre}</td>
                                                     <td>
-                                                        <Link to={`/admin/user/edit/${user.id}`} className='btn btn-primary'>Editar</Link>
+                                                        <Link to={`/admin/categoria/edit/${categoria.id}`} className='btn btn-primary'>Editar</Link>
                                                     </td>
                                                 </tr>
                                             )
@@ -58,4 +61,4 @@ const UserAll = () => {
   )
 }
 
-export default UserAll
+export default CategoriaAll
