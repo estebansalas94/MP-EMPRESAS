@@ -22,6 +22,7 @@ import PanelAdmin from './pageadmin/PanelAdmin';
 import UserAll from './pageadmin/UserAll';
 import UserUpdate from './pageadmin/UserUpdate';
 import CategoriaAll from './pageadmin/CategoriaAll';
+import CategoriaStore from './pageadmin/CategoriaStore';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Route path="user" element={<UserAll/>} />
             <Route path="user/edit/:id" element={<UserUpdate/>} />
             <Route path='categoria' element={<CategoriaAll/>}/>
+            <Route path='categoria/create' element={<CategoriaStore/>}/>
 
           </Route>
           <Route  path="/client" element={<LayoutClient/>}>
