@@ -27,6 +27,12 @@ export default {
     getCategoriaStore: (data) => axios.post(`${base_api_url}admin/categoria/`,data,{
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }),
+    getCategoriaById: (id) => axios.get(`${base_api_url}admin/categoria/${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    }),
+    getCategoriaUpdate: (data,id) => axios.put(`${base_api_url}admin/categoria/${id}`,data, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    }),
 
 
    

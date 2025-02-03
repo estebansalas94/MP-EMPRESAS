@@ -54,7 +54,7 @@ const CategoriaStore = () => {
                             </div>
                             <div className="btn-group mt-3">
                                 <Link to={-1} className="btn btn-secondary">← Volver</Link>
-                                <button className="btn btn-primary">Crear Categoria</button>
+                                <button className="btn btn-primary">Crear Categoría</button>
                             </div>
                         </form>
                     </div>
