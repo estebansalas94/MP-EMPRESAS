@@ -24,6 +24,9 @@ export default {
     getCategoriaAll: () => axios.get(`${base_api_url}admin/categoria`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }),
+    getCategoriaStore: (data) => axios.post(`${base_api_url}admin/categoria/`,data,{
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    }),
 
 
    
