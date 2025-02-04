@@ -3,7 +3,7 @@ import AuthUser from '../pageauth/AuthUser';
 import Config from '../Config';
 
 const Navbar = () => {
-  const {getRol,getLogout,getToken} = AuthUser();
+  const {getRol,getLogout,getToken,user} = AuthUser();
 
   const logoutUser = () => {
       const token = localStorage.getItem('token'); 
@@ -26,7 +26,7 @@ const Navbar = () => {
       return (
         <>
           <li className="nav-item">
-              <a className="nav-link" href={`${getRol()}`} >Administración</a>
+              <a className="nav-link" href={`${getRol()}`} >Administración | {user.name}</a>
           </li>
           <li className="nav-item">
               <a className="nav-link" href="#" onClick={logoutUser}>Logout</a>
