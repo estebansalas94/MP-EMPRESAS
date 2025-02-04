@@ -1,35 +1,24 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import Config from '../Config';
 import Sidebar from './Sidebar';
 import { Link } from 'react-router-dom';
 
-
-
-const CategoriaAll = () => {
-    const [categorias, setCategorias] = useState();
+const EmpresaAll = () => {
+    const [empresas, setEmpresas] = useState();
 
     useEffect(() => {
-        getCategoriaAll();
+        getEmpresaAll();
     },[]);
 
-    const getCategoriaAll = async () => {
+    const getEmpresaAll = async () => {
         try {
-            const response = await Config.getCategoriaAll();
-            setCategorias(response.data);
+            const response = await Config.getEmpresaAll();
+            setEmpresas(response.data);
         } catch (error) {
             console.error("Error al obtener usuarios:", error.response?.data || error.message);
         }
     }
-
-    const deleteCategoria = async (id)=>{
-        const isDelete = window.confirm("Deseas borrar la categoría?");
-        if(isDelete){
-            await Config.getCategoriaDeleteById(id);
-            getCategoriaAll();
-        }
-    }
-
   return (
     <div className="container bg-light">
         <div className='row'>
@@ -37,7 +26,6 @@ const CategoriaAll = () => {
             <div className="col-sm-9 mt-3 mb-3">
                 <div className="card">
                     <div className="card-body">
-                        <Link to={'/admin/categoria/create'} className="btn btn-primary">Agregar Categoría</Link>
                         <table className='table'>
                             <thead>
                                 <tr>
@@ -46,15 +34,14 @@ const CategoriaAll = () => {
                             </thead>
                             <tbody>
                                 {
-                                    !categorias ? "...Loading" : categorias.map(
-                                        (categoria) => {
+                                    !empresas ? "...Loading" : empresas.map(
+                                        (empresa) => {
                                             return(
-                                                <tr key={categoria.id}>
-                                                    <td>{categoria.orden}</td>
-                                                    <td>{categoria.nombre}</td>
+                                                <tr key={empresa.id}>
+                                                    <td>{empresa.orden}</td>
+                                                    <td>{empresa.nombre}</td>
                                                     <td>
-                                                        <Link to={`/admin/categoria/edit/${categoria.id}`} className='btn btn-primary'>Editar</Link>
-                                                        <button className='btn btn-danger' onClick={()=>deleteCategoria(categoria.id)}>Eliminar</button>
+                                                        <Link to={`/admin/empresa/edit/${empresa.id}`} className='btn btn-primary'>Editar</Link>
                                                     </td>
                                                 </tr>
                                             )
@@ -72,4 +59,4 @@ const CategoriaAll = () => {
   )
 }
 
-export default CategoriaAll
+export default EmpresaAll

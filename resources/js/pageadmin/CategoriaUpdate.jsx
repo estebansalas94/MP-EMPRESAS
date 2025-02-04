@@ -83,7 +83,7 @@ const CategoriaUpdate = () => {
                             </div>
                             <div className="btn-group mt-3">
                                 <Link to={-1} className="btn btn-secondary">← Volver</Link>
-                                <button className="btn btn-primary">Actualizar Categoría</button>
+                                <button className="btn btn-success">Actualizar Categoría</button>
                             </div>
                         </form>
                     </div>

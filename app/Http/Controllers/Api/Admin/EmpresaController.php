@@ -11,7 +11,7 @@ class EmpresaController extends Controller
 {
     public function index()
     {
-        $data = Empresa::orderBy("orden")->get(["id","nombre"]);
+        $data = Empresa::orderBy("orden")->get(["id","nombre","orden"]);
         return response()->json($data,200);
     }
 

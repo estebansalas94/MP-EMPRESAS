@@ -51,7 +51,7 @@ const UserUpdate = () => {
                                 </div>
                                 <div className="btn-group mt-3">
                                     <Link to={-1} className='btn btn-secondary '>← Volver</Link>
-                                    <button type="submit" className="btn btn-primary">Actualizar</button>
+                                    <button type="submit" className="btn btn-success">Actualizar</button>
                                 </div>
                             </form>
                         </div>
