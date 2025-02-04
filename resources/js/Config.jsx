@@ -49,5 +49,11 @@ export default {
     }),
 
 
+    //ROL CLIENTE
+    getEmpresaAllClient: ()=>axios.get(`${base_api_url}client/empresa`,{
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    }),
+
+
    
 }
