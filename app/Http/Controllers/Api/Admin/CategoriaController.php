@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 class CategoriaController extends Controller
 {
@@ -68,6 +69,11 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         $data = Categoria::find($id);
+        $folderPath = "img/categoria/";
+        $imagePath = public_path($folderPath . $data->urlfoto);
+        if(File::exists($imagePath)){
+            File::delete($imagePath);
+        }
         $data->delete();
         return response()->json("Categoria borrada...",200);
     }

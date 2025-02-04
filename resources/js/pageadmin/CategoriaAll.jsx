@@ -21,6 +21,15 @@ const CategoriaAll = () => {
             console.error("Error al obtener usuarios:", error.response?.data || error.message);
         }
     }
+
+    const deleteCategoria = async (id)=>{
+        const isDelete = window.confirm("Deseas borrar la categoría?");
+        if(isDelete){
+            await Config.getCategoriaDeleteById(id);
+            getCategoriaAll();
+        }
+    }
+
   return (
     <div className="container bg-light">
         <div className='row'>
@@ -45,6 +54,7 @@ const CategoriaAll = () => {
                                                     <td>{categoria.nombre}</td>
                                                     <td>
                                                         <Link to={`/admin/categoria/edit/${categoria.id}`} className='btn btn-primary'>Editar</Link>
+                                                        <button className='btn btn-primary' onClick={()=>deleteCategoria(categoria.id)}>Eliminar</button>
                                                     </td>
                                                 </tr>
                                             )

@@ -33,6 +33,9 @@ export default {
     getCategoriaUpdate: (data,id) => axios.put(`${base_api_url}admin/categoria/${id}`,data, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }),
+    getCategoriaDeleteById: (id) => axios.delete(`${base_api_url}admin/categoria/${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    }),
 
 
    
