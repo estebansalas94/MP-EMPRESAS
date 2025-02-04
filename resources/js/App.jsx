@@ -30,6 +30,8 @@ import EmpresaUpdate from './pageadmin/EmpresaUpdate';
 import PanelClient from './pageclient/PanelClient';
 import EmpresaAllClient from './pageclient/EmpresaAll';
 import EmpresaStore from './pageclient/EmpresaStore';
+import EmpresaUpdateClient from './pageclient/EmpresaUpdate';
+
 
 
 
@@ -61,6 +63,7 @@ function App() {
             <Route index element={<PanelClient/>}/>
             <Route path='empresa' element={<EmpresaAllClient/>}/>
             <Route path='empresa/create' element={<EmpresaStore/>}/>
+            <Route path="empresa/edit/:id" element={<EmpresaUpdateClient/>} />
 
           </Route>
         </Route>

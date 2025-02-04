@@ -78,7 +78,7 @@ const CategoriaUpdate = () => {
                             </div>
                             <div className="mt-3">
                                 <label>Imagen</label>
-                                <img src={"/img/categoria/" + urlfoto} alt="" className='img-fluid img-thumbnail'/>
+                                <img src={"/img/categoria/" + urlfoto} alt="" loading='lazy' width={200} height={200} className='img-fluid img-thumbnail'/>
                                 <input type="file" className='form-control' onChange={(e) => handleInputChange(e)} />
                             </div>
                             <div className="btn-group mt-3">

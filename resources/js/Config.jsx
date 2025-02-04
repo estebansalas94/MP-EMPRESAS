@@ -56,6 +56,13 @@ export default {
     getEmpresaStore: (data) => axios.post(`${base_api_url}client/empresa/`,data,{
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     }),
+    getEmpresaByIdClient: (id) => axios.get(`${base_api_url}client/empresa/${id}`,{
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    }),
+    getEmpresaUpdateClient: (data,id) => axios.put(`${base_api_url}client/empresa/${id}`,data,{
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    }),
+
 
 
 

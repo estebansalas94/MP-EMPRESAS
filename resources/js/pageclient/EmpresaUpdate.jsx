@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Config from '../Config';
 import Sidebar from './Sidebar';
 import Select from '../components/Select';
 
-const EmpresaStore = () => {
+const EmpresaUpdate = () => {
     const navigate= useNavigate();
+    const {id} = useParams();
     const [nombre,setNombre] = useState("");
     const [email,setEmail] = useState("");
     const [telefono,setTelefono] = useState("");
@@ -17,26 +18,46 @@ const EmpresaStore = () => {
     const [tiktok,setTiktok] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [orden, setOrden] = useState("");
-    const [urlfoto, setUrlfoto] = useState("");
     const [categoria_id,setCategoria_id] = useState("");
-
+    const [urlfoto, setUrlfoto] = useState("foto.jpg");
+    const [file, setFile] = useState("");
 
     const handleInputChange = async(e) => {
         let files = e.target.files;
         let reader = new FileReader();
         reader.readAsDataURL(files[0]);
         reader.onload = (e) => {
-            setUrlfoto(e.target.result);
+            setFile(e.target.result);
         }
     }
+    useEffect(()=>{
+        const getEmpresa = async () => {
+            Config.getEmpresaByIdClient(id)
+            .then(({data}) =>{
+                setNombre(data.nombre)
+                setEmail(data.email)
+                setDescripcion(data.descripcion)
+                setOrden(data.orden)
+                setTelefono(data.telefono)
+                setDireccion(data.direccion)
+                setWebsite(data.website)
+                setFacebook(data.facebook)
+                setYoutube(data.youtube)
+                setTiktok(data.tiktok)
+                setUrlfoto(data.urlfoto)
+                setCategoria_id(data.categoria_id)
+            });
+        };
+        getEmpresa();
+    },[]);
 
     const getCategoriaId = (v) => {
         setCategoria_id(v)
     }
 
-    const submitStore = async(e) => {
-        e.preventDefault();
-        await Config.getEmpresaStore({nombre, email, telefono, direccion, website, facebook, youtube, tiktok, descripcion, urlfoto, categoria_id,orden});
+    const submitUpdate = async(ev) => {
+        ev.preventDefault();
+        await Config.getEmpresaUpdateClient({nombre,email,descripcion,orden,telefono,direccion,website,facebook,youtube,tiktok,file,categoria_id},id);
         navigate('/client/empresa');
 
     }
@@ -47,7 +68,7 @@ const EmpresaStore = () => {
             <div className="col-sm-9 mt-3 mb-3">
                 <div className="card">
                     <div className="card-body">
-                        <form onSubmit={submitStore}>
+                        <form onSubmit={submitUpdate}>
                             <div className="form-group row">
                                 <div className="col-sm-6">
                                     <label>Nombre</label>
@@ -74,7 +95,7 @@ const EmpresaStore = () => {
                                 </div>
                                 <div className="col-sm-3">
                                     <label>Categoria</label>
-                                    <Select selected={getCategoriaId}/>
+                                    <Select selec={categoria_id} selected={getCategoriaId}/>
                                 </div>
                             </div>
                             <div className="form-group row mt-3">
@@ -99,13 +120,15 @@ const EmpresaStore = () => {
                                 <label>Descripción:</label>
                                 <textarea className="form-control" value={descripcion} onChange={(e) => setDescripcion(e.target.value)}></textarea>
                             </div>
+                            
                             <div className="mt-3">
                                 <label>Imagen:</label>
-                                <input type="file" className='form-control' onChange={(e) => handleInputChange(e)} />
+                                <img src={"/img/empresa/" + urlfoto} alt="" loading='lazy' width={200} height={200} className='img-fluid img-thumbnail'/>
+                                <input type="file" className='form-control' onChange={(e) => handleInputChange(e)} id="files"/>
                             </div>
                             <div className="btn-group mt-3">
                                 <Link to={-1} className="btn btn-secondary">← Volver</Link>
-                                <button className="btn btn-success">Crear Empresa</button>
+                                <button className="btn btn-success">Actualizar Empresa</button>
                             </div>
                         </form>
                     </div>
@@ -116,4 +139,4 @@ const EmpresaStore = () => {
   )
 }
 
-export default EmpresaStore
+export default EmpresaUpdate

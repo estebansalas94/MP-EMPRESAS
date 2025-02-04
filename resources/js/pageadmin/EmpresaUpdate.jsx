@@ -43,8 +43,6 @@ const EmpresaUpdate = () => {
                         <div className="card-body">
                             <form onSubmit={submitUpdate}>
                                 <div className="form-group row">
-                                    
-
                                     <div className="col-sm-8">
                                         <label htmlFor="nombre" className="form-label">Nombre:</label>
                                         <input type="text" className="form-control" id="nombre" value={nombre} onChange={(e)=>setName(e.target.value)} disabled/>
