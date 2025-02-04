@@ -24,6 +24,7 @@ import UserUpdate from './pageadmin/UserUpdate';
 import CategoriaAll from './pageadmin/CategoriaAll';
 import CategoriaStore from './pageadmin/CategoriaStore';
 import CategoriaUpdate from './pageadmin/CategoriaUpdate';
+import EmpresaAll from './pageadmin/EmpresaAll';
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
             <Route path='categoria' element={<CategoriaAll/>}/>
             <Route path='categoria/create' element={<CategoriaStore/>}/>
             <Route path="categoria/edit/:id" element={<CategoriaUpdate/>} />
+            <Route path='empresa' element={<EmpresaAll/>}/>
+
 
           </Route>
           <Route  path="/client" element={<LayoutClient/>}>

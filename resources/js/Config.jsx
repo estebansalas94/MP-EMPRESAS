@@ -38,5 +38,10 @@ export default {
     }),
 
 
+    getEmpresaAll: () => axios.get(`${base_api_url}admin/empresa`,{
+        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    }),
+
+
    
 }
