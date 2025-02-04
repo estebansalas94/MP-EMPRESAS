@@ -15,7 +15,6 @@ import ProtectedRoutes from './pageauth/ProtectedRoutes';
 //AUTH
 import Login from './pageauth/Login';
 import Register from './pageauth/Register';
-import PanelClient from './pageclient/PanelClient';
 
 //ADMIN
 import PanelAdmin from './pageadmin/PanelAdmin';
@@ -26,6 +25,9 @@ import CategoriaStore from './pageadmin/CategoriaStore';
 import CategoriaUpdate from './pageadmin/CategoriaUpdate';
 import EmpresaAll from './pageadmin/EmpresaAll';
 import EmpresaUpdate from './pageadmin/EmpresaUpdate';
+
+//CLIENT
+import PanelClient from './pageclient/PanelClient';
 
 
 function App() {
@@ -49,12 +51,9 @@ function App() {
             <Route path="categoria/edit/:id" element={<CategoriaUpdate/>} />
             <Route path='empresa' element={<EmpresaAll/>}/>
             <Route path="empresa/edit/:id" element={<EmpresaUpdate/>} />
-
-
-
           </Route>
+
           <Route  path="/client" element={<LayoutClient/>}>
-            <Route  index element={<Pagehome/>}/>
             <Route index element={<PanelClient/>}/>
           </Route>
         </Route>
