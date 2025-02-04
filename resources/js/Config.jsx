@@ -64,6 +64,9 @@ export default {
     }),
 
 
+    //PUBLICO
+    getEmpresas: (data) => axios.get(`${base_api_url}public/empresas/${data}`),
+
 
 
    

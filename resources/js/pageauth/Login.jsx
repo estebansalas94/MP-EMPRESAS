@@ -25,9 +25,7 @@ const Login = () => {
         await axios.get('/sanctum/csrf-cookie').then(() => {
             Config.getLogin({ email, password }).then((data) => {
                 if (data.data.success) {
-                    console.log("Usuario autenticado:", data);
                     localStorage.setItem('token', data.data.token);
-    
                     setToken(
                         data.data.user,
                         data.data.token,
