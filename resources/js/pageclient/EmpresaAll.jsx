@@ -26,6 +26,7 @@ const EmpresaAll = () => {
             <div className="col-sm-9 mt-3 mb-3">
                 <div className="card">
                     <div className="card-body">
+                        <Link to={'/client/empresa/create'} className="btn btn-primary">Agregar Empresa</Link>
                         <table className='table'>
                             <thead>
                                 <tr>
