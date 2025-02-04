@@ -25,6 +25,7 @@ import CategoriaAll from './pageadmin/CategoriaAll';
 import CategoriaStore from './pageadmin/CategoriaStore';
 import CategoriaUpdate from './pageadmin/CategoriaUpdate';
 import EmpresaAll from './pageadmin/EmpresaAll';
+import EmpresaUpdate from './pageadmin/EmpresaUpdate';
 
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
             <Route path='categoria/create' element={<CategoriaStore/>}/>
             <Route path="categoria/edit/:id" element={<CategoriaUpdate/>} />
             <Route path='empresa' element={<EmpresaAll/>}/>
+            <Route path="empresa/edit/:id" element={<EmpresaUpdate/>} />
+
 
 
           </Route>

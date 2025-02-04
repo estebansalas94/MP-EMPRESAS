@@ -41,7 +41,7 @@ const UserUpdate = () => {
                             <form onSubmit={submitUpdate}>
                                 <div className="col-sm-12">
                                     <label htmlFor="name" className="form-label">Nombre:</label>
-                                    <input type="text" className="form-control" id="name" value={name} onChange={(e)=>setName(e.target.value)}/>
+                                    <input type="text" className="form-control" id="name" value={name} onChange={(e)=>setName(e.target.value)} disabled/>
                                 </div>
                                 <div className="col-sm-12 mt-3">
                                     <div className="form-check form-switch">
