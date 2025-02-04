@@ -53,6 +53,10 @@ export default {
     getEmpresaAllClient: ()=>axios.get(`${base_api_url}client/empresa`,{
         headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
     }),
+    getEmpresaStore: (data) => axios.post(`${base_api_url}client/empresa/`,data,{
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    }),
+
 
 
    
