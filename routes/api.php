@@ -16,6 +16,9 @@ Route::prefix('v1')->group(function(){
     Route::post('/auth/login',[AuthController::class,'login']);
 
     Route::get('/public/empresas/{quantity}',[FrontController::class,'empresas']);
+    Route::post('/public/empresas/search',[FrontController::class,'search']);
+
+
     //Route::get('/public/{slug}',[FrontController::class,'categoria']);
 
     Route::group(['middleware'=>'auth:sanctum'],function(){
