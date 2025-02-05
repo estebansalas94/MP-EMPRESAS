@@ -8,9 +8,6 @@ import LayoutPublic from './layouts/LayoutPublic';
 import LayoutAdmin from './layouts/LayoutAdmin';
 import LayoutClient from './layouts/LayoutClient';
 
-//PUBLIC
-import Pagehome from './pagepublic/Pagehome';
-import ProtectedRoutes from './pageauth/ProtectedRoutes';
 
 //AUTH
 import Login from './pageauth/Login';
@@ -32,9 +29,12 @@ import EmpresaAllClient from './pageclient/EmpresaAll';
 import EmpresaStore from './pageclient/EmpresaStore';
 import EmpresaUpdateClient from './pageclient/EmpresaUpdate';
 
-
-
-
+//PUBLIC
+import Home from './pagepublic/Home';
+import ProtectedRoutes from './pageauth/ProtectedRoutes';
+import NotFound from './pagepublic/NotFound';
+import Categorias from './pagepublic/Categorias';
+import Categoria from './pagepublic/Categoria';
 
 function App() {
   return (
@@ -42,9 +42,12 @@ function App() {
       <Routes>
 
         <Route path="/" element={<LayoutPublic/>}>
-          <Route index element={<Pagehome/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>}/>
+          <Route path='/*' element={<NotFound/>} />
+          <Route index element={<Home/>} />
+          <Route path='/categorias' element={<Categorias/>}/>
+          <Route path='/categorias/:slug' element={<Categoria/>}/>
         </Route>
 
         <Route element={<ProtectedRoutes/>}>
