@@ -12,7 +12,7 @@
     <meta name="msapplication-TileImage"
         content="https://i.postimg.cc/7PGbqwrr/apreton-de-manos-de-asociacion.png" />
     <title>MP - EMPRESAS</title>
-    @viteReactRefresh
+    
     @vite("resources/js/app.js")
 </head>
 <body>

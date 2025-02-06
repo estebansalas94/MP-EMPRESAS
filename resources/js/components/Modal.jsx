@@ -9,7 +9,7 @@ const Modal = ({datamodal,close}) => {
     <div className='modal_bg'>
         <div className="modal_content">
             <div className="modal_body">
-                <img src={`/img/empresa/`+datamodal.urlfoto} alt="" width={150} height={150} className='mx-auto d-block rounded-pill p-2 shadow' />
+                <img src={`/img/empresa/`+datamodal.urlfoto} alt="" onError={(e) => e.target.src = "https://i.postimg.cc/YSGGV4g4/descarga.jpg"} width={150} height={150} className='mx-auto d-block rounded-pill p-2 shadow' />
                 <h1 className='text-center'>{datamodal.nombre}</h1>
                 <p>{datamodal.descripcion}</p>
                 <ul className='list-group'>
@@ -27,8 +27,8 @@ const Modal = ({datamodal,close}) => {
                     </div>
                 </div>
             </div>
-            <div className="modal_footer">
-                <button onClick={()=>close(false)} className='btn btn-primary mty-3'>← Regresar</button>
+            <div className="modal_footer text-center">
+                <button onClick={()=>close(false)} className='btn btn-primary '>← Regresar</button>
             </div>
         </div>
     </div>

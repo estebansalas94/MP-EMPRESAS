@@ -48,11 +48,11 @@ const Login = () => {
                         <h1 className='text-center fw-bolder'>LOGIN</h1>
                         <input type="email" className='form-control mt-3' placeholder='Email:' value={email} onChange={(e)=>setEmail(e.target.value)} required />
                         <input type="password" className='form-control mt-3' placeholder='Password:' value={password} onChange={(e)=>setPassword(e.target.value)} required />
-                        <button onClick={submitLogin} className='btn btn-primary mt-3 w-100'>Iniciar Sesion</button>
+                        <button onClick={submitLogin} className='btn btn-primary mt-3 w-100'>INICIAR SESION</button>
                         <p className='text-center mt-3'>{message}</p>
                         <hr />
                         <p className='text-center'>Primera vez... debe registrarse</p>
-                        <a href="/register" className='btn btn-primary mt-3 w-100'>Registrarse</a>
+                        <a href="/register" className='btn btn-primary mt-3 w-100'>REGISTRO</a>
                     </div>
                 </div>
             </div>

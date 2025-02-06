@@ -39,19 +39,16 @@ const Categoria = () => {
     <div className='container'>
       <div className="row justify-content-center">
         <div className="col-sm-8">
-          <div className="card mt-5 mb-5">
-            <div className="card-body">
-              <h1 className='text-center fw bolder'>Empresas de {categoria.nombre}</h1>
-            </div>
-          </div>
+            <h1 className='text-center fw-bolder mb-5 mt-5'>Empresas de {categoria.nombre}</h1>
+            {empresas.length === 0 && <p className='text-center mt-5'>...No se encontraron empresas</p>}
           {
             empresas.map((empresa)=>{
               return (
-                <div className="mt-3" key={empresa.id}>
+                <div className="card mt-3 mb-3" key={empresa.id}>
                   <div className="card-body">
-                    <h2 className="fw-bolder">
-                      <a href="#" onClick={(e)=>showModal(e,empresa)}>{empresa.nombre}</a>
-                    </h2>
+                    <h3 className="fw-bolder">
+                      <a href="#" onClick={(e)=>showModal(e,empresa)} className='text-decoration-none'>{empresa.nombre}</a>
+                    </h3>
                     <p>{empresa.descripcion}</p>
                   </div>
                 </div>
