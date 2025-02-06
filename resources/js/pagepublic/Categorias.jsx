@@ -23,7 +23,7 @@ const Categorias = () => {
                   <div className="col-sm-4" key={categoria.id}>
                     <div className="card">
                       <div className="card-body">
-                        <img src={`/img/categoria/`+categoria.urlfoto} alt="" className='mx-auto d-block img-fluid' />
+                        <img src={`/img/categoria/`+categoria.urlfoto} alt="" onError={(e) => e.target.src = "https://i.postimg.cc/YSGGV4g4/descarga.jpg"} className='mx-auto d-block img-fluid ' style={{ width: '150px', height: '150px', objectFit: 'cover' }}/>
                       </div>
                       <div className="card-footer">
                         <a href={`/categorias/${categoria.slug}`} className='btn btn-primary w-100'>{categoria.nombre}</a>
