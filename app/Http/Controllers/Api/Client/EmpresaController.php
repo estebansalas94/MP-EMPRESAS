@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class EmpresaController extends Controller
 {
     public function index(){
-        $data = Empresa::whereUser_id(auth()->user()->id)->orderBy("orden")->get(["id","nombre","orden"]);
+        $data = Empresa::whereUser_id(auth()->user()->id)->orderBy("orden")->get();
         return response()->json($data,200);
     }
 
