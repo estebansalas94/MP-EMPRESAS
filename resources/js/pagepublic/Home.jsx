@@ -5,7 +5,7 @@ import Modal from '../components/Modal';
 const Home = () => {
   const[empresas, setEmpresas] = useState([]);
   const[modal, setModal] = useState(false);
-  const[datamodal, setDatamodal] = useState(false);
+  const[datamodal, setDatamodal] = useState([]);
 
   useEffect(()=>{
     getEmpresas();

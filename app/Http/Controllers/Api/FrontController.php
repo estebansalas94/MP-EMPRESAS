@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,25 @@ class FrontController extends Controller
     public function search(Request $request)
     {
         $data = Empresa::where("nombre","like","%".$request->text."%")->get();
+        return response()->json($data,200);
+    }
+
+    public function categorias()
+    {
+        $data = Categoria::all();
+        return response()->json($data,200);
+    }
+
+    public function categoria($slug)
+    {
+        $data = [];
+        $categoria = Categoria::whereSlug($slug)->first();
+        if(!empty($categoria)){
+            $data = [
+                'categoria' => $categoria,
+                'empresas' => $categoria->empresas
+            ];
+        }
         return response()->json($data,200);
     }
 }
