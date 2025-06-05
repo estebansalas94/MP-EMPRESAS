@@ -1,3 +1,5 @@
+DOCUMENTACION COMPLETA DEL PROYECTO: https://deepwiki.com/estebansalas94/MP-EMPRESAS
+
 MP-EMPRESAS es una aplicación de directorio de empresas multifunción que permite la navegación pública de listados de empresas al tiempo que proporciona interfaces autenticadas para propietarios y administradores de empresas. El sistema admite tres roles de usuario distintos: usuarios públicos anónimos que pueden explorar y buscar empresas, clientes autenticados que pueden administrar sus propios listados de empresas y administradores que tienen acceso CRUD completo a los usuarios, categorías y todas las empresas.
 
 Este documento proporciona una descripción general de alto nivel de la arquitectura del sistema, los roles de usuario y la funcionalidad principal. Para obtener información detallada sobre interfaces específicas, consulte Interfaz pública, Interfaz de cliente e Interfaz de administración. Para ver la documentación de la API, consulte Referencia de la API.
